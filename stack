@@ -1,0 +1,132 @@
+#include <iostream>
+#include<conio.h>
+#include<iomanip>
+#include<string>
+
+using namespace std;
+
+const int max_stack=10;
+
+//buat tipe data stack
+struct tipe_stack{
+	int top;
+	long nip[max_stack];
+	string nama[max_stack];
+};
+
+//menciptakan stack
+tipe_stack stack;
+
+//inisiasi awal stack
+void int(){
+	stack.top=-1;
+}
+
+//menciptakan fungsi push untuk penambahan data pada stack berasa nim dan nama
+void push(long nip, string nama)
+{
+	stack.top++;
+	stack.nip[stack.top]=nip;
+	stack.nama[stack.top]=nama;
+}
+
+//fungsi untuk melakukan pop atau menghapus element data stack
+void pop()
+{
+	cout<<"mahasiswa dengan nip "<<stack.nip[stack.top]<<"telah diambil datanya"<<endl;
+	stack.nip[stack.top] = NULL;
+	stack.nama[stack.top]= "";
+	stack.top--;
+}
+
+//fungsi mengecek keadaan isi stack apakah kosong atau tidak
+int isEmpty()
+{
+	if(stack.top==-1)
+		return 1;
+	else
+		return 0;
+}
+
+//fungsi mengecek keadaan isi apakah penuh atau tidak
+int isFull()
+{
+	if(stack.top==max_stack-1)
+		return 1;
+	else 
+		return 0;
+}
+
+//fungsi mencetak stack
+coout<<" data mahasiswa: "<<endl;
+
+cout<<setw(10) << "NIP" << setw(10) << "Nama" <<endl;
+
+for(int i = stack.top; i>=0; i--){
+	cout<< setw(10) << stack.nip[i] <<setw(10) <<stack.nama[i]<<endl;
+	}
+	cout<<endl;
+}
+
+void main(){
+	//create stack
+	int();
+
+	do{
+		int pilihan;
+menu:
+		cout<<"===================================================="<<endl;
+		cout<<"					Stack Operator					   "<<endl;
+		cout<<"===================================================="<<endl;
+		cout<<"					1.PUSH							   "<<endl;
+		cout<<"					2.POP							   "<<endl;
+		cout<<"					3.CTEAK STACK					   "<<endl;
+		cout<<"					4.SELESAI						   "<<endl;
+		cout<<"===================================================="<<endl;
+		cout<<" Pilihan anda: ";
+		cin>> pilihan;
+		switch(pilihan){
+			case 1:
+				system("cls");
+				if(isFull()!=1);
+				long nip;
+				string nama;
+				cout<<" NIP = "; cin>>nip;
+				cout<<" Nama = "; cin>>nama;
+				push(nip, nama)
+		}else
+		{
+			cout<<"Stack Penuh"<<endl;
+				}
+				break;
+
+			case 2:
+				system("cls");
+				if (isEmpty()!=1){
+					pop();
+				}else
+				{
+					cout<<"Stack Masih Kosong"<<endl;
+				}
+				break;
+			case 3:
+				system("cls")
+					if (isEmpty() != 1){
+					}
+					else{
+						cout<<"=====stack kosong====="<<endl<<endl;
+					}
+					break;
+			case 4:
+				exit(1);
+				break;
+			default;
+				system("cls");
+				cout<<"Input Anda salah!!"<<endl;
+				system("cls");
+				_getch();
+				goto menu;
+				break;
+		}
+	}while(1)
+}
